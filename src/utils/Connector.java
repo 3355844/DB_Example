@@ -12,13 +12,11 @@ public class Connector {
     static String user = "root";
     static String password = "root";
 
-    public Connector() {
-
-    }
+    public Connector() {}
 
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver"); // Driver register String
             connection =  DriverManager.getConnection(URL,user, password);
         } catch (SQLException e) {
             e.printStackTrace();
