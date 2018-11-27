@@ -1,8 +1,10 @@
 package dao;
 
+import model.Market;
 import model.Product;
 import utils.Connector;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,10 +12,23 @@ import java.util.ArrayList;
 
 public class Dao {
 
-
-    public static String createProductQuery(Product product) {
-        String query = "INSERT INTO mydb.products (NAME) values ('" + product.getName() + "');";
-        return query;
+    public static Market getMarketByID(int id){
+        Market market = new Market();
+        String query = "SELECT * FROM mydb.markets where ID=?";
+        try {
+            PreparedStatement ps = Connector.getConnection().prepareStatement(query);
+            ps.setInt(1, id );
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                market.setId(resultSet.getInt("ID"));
+                market.setNameMarket(resultSet.getString("MARKET_NAME"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            Connector.closeConnection();
+        }
+        return market;
     }
 
     public static Product updateProduct(Product product) {
@@ -38,7 +53,10 @@ public class Dao {
             Statement statement = Connector.getConnection().createStatement();
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
-                products.add(new Product(rs.getInt("ID"), rs.getString("NAME")));
+                products.add(new Product(
+                        rs.getInt("ID"),
+                        rs.getString("NAME"),
+                        rs.getInt("ID_MARKET")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

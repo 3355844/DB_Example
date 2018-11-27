@@ -5,8 +5,12 @@ import java.util.Objects;
 public class Product {
     private int id;
     private String name;
+    private int marketId;
 
-    public Product() {
+    public Product(int id, String name, int marketId) {
+        this.id = id;
+        this.name = name;
+        this.marketId = marketId;
     }
 
     public Product(int id, String name) {
@@ -14,8 +18,31 @@ public class Product {
         this.name = name;
     }
 
-    public Product(String name) {
-        this.name = name;
+    public Product() {
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", marketId=" + marketId +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return getId() == product.getId() &&
+                getMarketId() == product.getMarketId() &&
+                Objects.equals(getName(), product.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getMarketId());
     }
 
     public int getId() {
@@ -34,25 +61,11 @@ public class Product {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return getId() == product.getId() &&
-                Objects.equals(getName(), product.getName());
+    public int getMarketId() {
+        return marketId;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName());
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public void setMarketId(int marketId) {
+        this.marketId = marketId;
     }
 }
