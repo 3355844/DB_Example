@@ -12,39 +12,44 @@ import java.util.ArrayList;
 
 public class Dao {
 
-    public static Market getMarketByID(int id){
+
+    public static ArrayList<Market> getMarketList() {
+        ArrayList<Market> markets = new ArrayList<>();
+        String query = "SELECT * FROM mydb.markets";
+
+        try {
+            Statement statement = Connector.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()){
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Connector.closeConnection();
+        }
+        return markets;
+    }
+
+    public static Market getMarketByID(int id) {
         Market market = new Market();
         String query = "SELECT * FROM mydb.markets where ID=?";
         try {
             PreparedStatement ps = Connector.getConnection().prepareStatement(query);
-            ps.setInt(1, id );
+            ps.setInt(1, id);
             ResultSet resultSet = ps.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 market.setId(resultSet.getInt("ID"));
                 market.setNameMarket(resultSet.getString("MARKET_NAME"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             Connector.closeConnection();
         }
         return market;
     }
 
-    public static Product updateProduct(Product product) {
-
-        String query = "UPDATE mydb.products SET NAME='" + product.getName() + "' WHERE ID='" + product.getId() + "'";
-
-        try {
-            Statement statement = Connector.getConnection().createStatement();
-            statement.execute(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            Connector.closeConnection();
-        }
-        return getProductByID(product.getId());
-    }
 
     public static ArrayList<Product> getProductList() {
         ArrayList<Product> products = new ArrayList<>();

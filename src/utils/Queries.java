@@ -5,17 +5,33 @@ import model.Product;
 
 public class Queries {
 
+    public static final String DELETE_MARKET(int id) {
+        return "DELETE FROM mydb.markets WHERE ID='" + id + "'";
+    }
+
+    private static final String UPDATE_PRODUCT(Product product) {
+        return "UPDATE mydb.products SET " +
+                "NAME='" + product.getName() + "' " +
+                ", ID_MARKET='"+product.getMarketId()+"'" +
+                "WHERE ID='" + product.getId() + "'";
+    }
+
+    public static final String UPDATE_MARKET(Market market) {
+        return "UPDATE mydb.markets SET " +
+                "MARKET_NAME='" + market.getNameMarket() + "'" +
+                "WHERE ID='" + market.getId() + "';";
+    }
+
+
     public static final String ADD_COLUMN_ID_MARKET = "ALTER TABLE mydb.products ADD ID_MARKET varchar(255);";
 
-    public static String CREATE_MARKET(Market market){
-        String query = "INSERT INTO mydb.markets (MARKET_NAME) values ('" + market.getNameMarket() + "');";
-        return query;
+    public static String CREATE_MARKET(Market market) {
+        return "INSERT INTO mydb.markets (MARKET_NAME) values ('" + market.getNameMarket() + "');";
     }
 
 
     public static String CREATE_PRODUCT(Product product) {
-        String query = "INSERT INTO mydb.products (NAME) values ('" + product.getName() + "');";
-        return query;
+        return "INSERT INTO mydb.products (NAME) values ('" + product.getName() + "');";
     }
 
     public static final String CREATE_PRODUCT_TABLE = "CREATE TABLE mydb.products (\n" +

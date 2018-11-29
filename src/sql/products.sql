@@ -5,7 +5,7 @@ CREATE TABLE products (
   FOREIGN KEY (ID_MARKET),
   PRIMARY KEY (ID));
 
-ALTER TABLE mydb.products ADD ID_MARKET varchar(255);
+ALTER TABLE mydb.products ADD ID_MARKET int;
 
 INSERT INTO mydb.products (NAME) values ('name');
 

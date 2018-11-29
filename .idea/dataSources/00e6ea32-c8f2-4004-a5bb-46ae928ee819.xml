@@ -1112,7 +1112,7 @@
     </column>
     <column id="274" parent="246" name="ID_MARKET">
       <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="275" parent="246" name="PRIMARY">

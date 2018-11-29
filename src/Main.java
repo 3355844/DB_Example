@@ -8,10 +8,15 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        Market market = new Market("ATB");
+        Market market = Dao.getMarketByID(1);
+//        Product product = Dao.getProductByID(2);
+//        product.setMarketId(market.getId());
 
-        market = Dao.getMarketByID(1);
-        System.out.println(market.toString());
+//        Dao.updateProduct(product);
+        System.out.println(market.getNameMarket());
+        market.setNameMarket("FORA");
+        Dao.executeQuery(Queries.UPDATE_MARKET(market));
+        System.out.println(Dao.getMarketByID(market.getId()).toString());
 
 //        Dao.executeQuery(Queries.CREATE_MARKET(market));
 
