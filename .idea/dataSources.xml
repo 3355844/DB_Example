@@ -3,7 +3,6 @@
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="mydb@localhost" uuid="00e6ea32-c8f2-4004-a5bb-46ae928ee819">
       <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/mydb</jdbc-url>
       <driver-properties>
