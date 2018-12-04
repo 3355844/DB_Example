@@ -12,11 +12,11 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
     private String login;
+    private String phone;
+    private String lastIP;
     private Date registerDate;
     private Date lastLoginDate;
-    private String lastIP;
     private ArrayList<Role> roles;
     private ArrayList<Cart> carts;
     private ArrayList<PointOfSale> point;
