@@ -2,7 +2,7 @@ package TestPackage;
 
 import java.util.ArrayList;
 
-public class Market {
+public class PointOfSale {
 
     // fills
 

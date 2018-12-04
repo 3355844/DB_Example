@@ -23,7 +23,7 @@ public class Market {
 
     @Override
     public String toString() {
-        return "Market{" +
+        return "PointOfSale{" +
                 "id=" + id +
                 ", nameMarket='" + nameMarket + '\'' +
                 '}';

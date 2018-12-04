@@ -1,4 +1,4 @@
 package TestPackage;
 
-public class Trade {
+public class Address {
 }
