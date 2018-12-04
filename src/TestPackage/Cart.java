@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Cart {
 
-    // fields
-
-    ArrayList<Product>products;
+    private long id;
+    private long userId;
+    private ArrayList<Product>products;
 }

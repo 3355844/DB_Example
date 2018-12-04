@@ -2,5 +2,6 @@ package TestPackage;
 
 public class Right {
 
-    // fields
+    private long id;
+    private String name;
 }

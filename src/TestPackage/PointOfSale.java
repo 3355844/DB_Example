@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class PointOfSale {
 
-    // fills
-
-    ArrayList<Product> products;
-
+    private long id;
+    private String name;
+    private long addressId;
+    private ArrayList<Product> products;
 }

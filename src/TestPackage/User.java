@@ -7,6 +7,7 @@ public class User {
 
     private boolean isBlock;
     private long id;
+    private long idAddress;
     private String password;
     private String firstName;
     private String lastName;
@@ -16,12 +17,9 @@ public class User {
     private Date registerDate;
     private Date lastLoginDate;
     private String lastIP;
-
-
-    // fields
-    ArrayList<Role> roles;
-    ArrayList<Cart> carts;
-    ArrayList<PointOfSale> point;
-    ArrayList<Orders> orders;
+    private ArrayList<Role> roles;
+    private ArrayList<Cart> carts;
+    private ArrayList<PointOfSale> point;
+    private ArrayList<Orders> orders;
 
 }
