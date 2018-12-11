@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Role {
 
     private long id;
-    private String name;
     private boolean isDefault;
+    private String name;
     private ArrayList<Right> rights;
 }

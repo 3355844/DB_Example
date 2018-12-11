@@ -3,7 +3,7 @@ package TestPackage;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Orders {
+public class Order {
 
     private long id;
     private long userId;
