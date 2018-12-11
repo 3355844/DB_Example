@@ -3,7 +3,7 @@ package TestPackage;
 public class Product {
 
     private long id;
-    private long idPoint;
+    private long pointId;
     private double price;
     private double amount;
     private String name;
