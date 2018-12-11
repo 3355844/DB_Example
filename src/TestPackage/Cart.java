@@ -1,10 +1,11 @@
 package TestPackage;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 public class Cart {
 
     private long id;
     private long userId;
-    private ArrayList<Product>products;
+    Map<Long, Double> productsInCart;
+
 }
